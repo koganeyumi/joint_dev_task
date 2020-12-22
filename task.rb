@@ -239,7 +239,7 @@ end
 
 class Zoo
   # 以下に回答を記載
-   attr_accessor :name, :entry_fee
+   attr_reader :name, :entry_fee
   
   def initialize(**params)
     @zoo_name = params[:name]
@@ -247,19 +247,17 @@ class Zoo
   end
 
   def info_entry_fee(user)
-  
-    case user.user_age
+    entry_fee = case user.user_age
     when 0..5
-      p "#{user.user_name}さんの入場料金は#{@entry_fee[:infant]}円です。"
-
+      @entry_fee[:infant]
     when 6..12
-      p "#{user.user_name}さんの入場料金は#{@entry_fee[:children]}円です。"
+      @entry_fee[:children]
     when 13..64
-      p "#{user.user_name}さんの入場料金は#{@entry_fee[:adult]}円です。"
-
+      @entry_fee[:adult]
     when 65..120
-      p "#{user.user_name}さんの入場料金は#{@entry_fee[:senior]}円です。"
-    end   
+      @entry_fee[:senior]
+    end
+      p "#{user.user_name}さんの入場料金は#{entry_fee[:senior]}円です。" 
   end
 end
 
