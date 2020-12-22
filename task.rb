@@ -255,7 +255,7 @@ class Zoo
     when 65..120
       @entry_fee[:senior]
     end
-      p "#{user.user_name}さんの入場料金は#{entry_fee[:senior]}円です。" 
+      p "#{user.user_name}さんの入場料金は#{entry_fee}円です。" 
   end
 end
 
@@ -273,4 +273,4 @@ def q20
   users.each do |user|
     zoo.info_entry_fee(user)
   end
-end
+end”
